@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, Link } from 'gatsby';
+import { Global, css } from '@emotion/react';
 
 interface InfoPageProps {
   data: {
@@ -22,6 +23,7 @@ const InfoPage: FunctionComponent<InfoPageProps> = function ({
 }) {
   return (
     <div>
+      <Global styles={globalStyle} />
       {title} {description} {author}
       <Link to="/">To Main</Link>
     </div>
@@ -39,5 +41,14 @@ export const metadataQuery = graphql`
         author
       }
     }
+  }
+`;
+
+const globalStyle = css`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
   }
 `;
