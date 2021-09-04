@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 const PROFILE_IMAGE_PATH = '../../image/profile.jpg';
 
 const ProfileImageWrapper = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 250px;
+  height: 250px;
   margin-bottom: 30px;
   border-radius: 50%;
 `;
