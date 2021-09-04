@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { graphql, Link } from 'gatsby';
 import { Global, css } from '@emotion/react';
 
