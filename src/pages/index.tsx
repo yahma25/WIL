@@ -34,18 +34,26 @@ interface IndexPageProps {
       edges: ArticleType[];
       nodes: FeaturedImgType[];
     };
+    file: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
+      };
+    };
   };
 }
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   data: {
     allMarkdownRemark: { edges, nodes },
+    file: {
+      childImageSharp: { gatsbyImageData },
+    },
   },
 }) {
   return (
     <Container>
       <GlobalStyle />
-      <Introduction />
+      <Introduction profileImage={gatsbyImageData} />
       <CategoryList selectedCategory="Work" categoryList={CATEGORY_LIST} />
       <ArticleList
         articles={edges.map((articleType, idx) => {
@@ -95,6 +103,19 @@ export const queryArticleList = graphql`
             )
           }
         }
+      }
+    }
+    file(name: { eq: "profile" }) {
+      childImageSharp {
+        gatsbyImageData(
+          quality: 100
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+          transformOptions: { fit: INSIDE }
+          layout: CONSTRAINED
+          width: 250
+          height: 250
+        )
       }
     }
   }
