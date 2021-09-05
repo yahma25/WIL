@@ -6,6 +6,7 @@ import Footer from 'components/common/Footer';
 import CategoryList from 'components/main/CategoryList';
 import ArticleList, { ArticleType } from 'components/main/ArticleList';
 import { graphql } from 'gatsby';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 const Container = styled.div`
   display: flex;
@@ -19,17 +20,26 @@ const CATEGORY_LIST = {
   Web: 3,
 };
 
+type FeaturedImgType = {
+  featuredImg: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+};
+
 interface IndexPageProps {
   data: {
     allMarkdownRemark: {
       edges: ArticleType[];
+      nodes: FeaturedImgType[];
     };
   };
 }
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   data: {
-    allMarkdownRemark: { edges },
+    allMarkdownRemark: { edges, nodes },
   },
 }) {
   return (
@@ -37,7 +47,15 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       <GlobalStyle />
       <Introduction />
       <CategoryList selectedCategory="Work" categoryList={CATEGORY_LIST} />
-      <ArticleList articles={edges} />
+      <ArticleList
+        articles={edges.map((articleType, idx) => {
+          // articles 파라미터로 하나로 사용하기 위해
+          // 중간에서 gatsbyImageData 주입.
+          articleType.node.frontmatter.gatsbyImageData =
+            nodes[idx].featuredImg.childImageSharp.gatsbyImageData;
+          return articleType;
+        })}
+      />
       <Footer />
     </Container>
   );
@@ -58,7 +76,23 @@ export const queryArticleList = graphql`
             summary
             date(formatString: "YYYY.MM.DD")
             categories
-            thumbnail
+            featuredImgUrl
+            featuredImgAlt
+          }
+        }
+      }
+      nodes {
+        featuredImg {
+          childImageSharp {
+            gatsbyImageData(
+              quality: 100
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              transformOptions: { fit: INSIDE }
+              layout: CONSTRAINED
+              width: 768
+              height: 200
+            )
           }
         }
       }

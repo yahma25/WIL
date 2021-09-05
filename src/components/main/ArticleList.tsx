@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import ArticleItem from 'components/main/ArticleItem';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 export type ArticleType = {
   node: {
@@ -10,7 +11,9 @@ export type ArticleType = {
       summary: string;
       date: string;
       categories: string[];
-      thumbnail: string;
+      featuredImgUrl: string;
+      featuredImgAlt: string;
+      gatsbyImageData: IGatsbyImageData;
     };
   };
 };
@@ -37,20 +40,13 @@ const ArticleListWrapper = styled.div`
 const ArticleList: FunctionComponent<ArticleProps> = function ({ articles }) {
   return (
     <ArticleListWrapper>
-      {articles.map(
-        ({
-          node: {
-            id,
-            frontmatter: { ...rest },
-          },
-        }) => (
-          <ArticleItem
-            key={id}
-            {...rest}
-            link={'<https://www.google.co.kr/>'}
-          />
-        ),
-      )}
+      {articles.map(({ node: { id, frontmatter } }: ArticleType) => (
+        <ArticleItem
+          key={id}
+          {...frontmatter}
+          link={'<https://www.google.co.kr/>'}
+        />
+      ))}
     </ArticleListWrapper>
   );
 };
