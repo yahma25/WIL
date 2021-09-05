@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
-const PROFILE_IMAGE_PATH = '../../image/profile.jpg';
+const PROFILE_IMAGE_PATH = '../../images/profile.jpg';
 
 const ProfileImageWrapper = styled.img`
   width: 250px;
