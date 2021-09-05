@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import GlobalStyle from 'components/common/GlobalStyle';
 import Introduction from 'components/main/Introduction';
 import Footer from 'components/common/Footer';
+import CategoryList from 'components/main/CategoryList';
 
 const Container = styled.div`
   display: flex;
@@ -10,11 +11,18 @@ const Container = styled.div`
   height: 100%;
 `;
 
+const CATEGORY_LIST = {
+  All: 5,
+  Work: 2,
+  Web: 3,
+};
+
 const IndexPage: FunctionComponent = function () {
   return (
     <Container>
       <GlobalStyle />
       <Introduction />
+      <CategoryList selectedCategory="Work" categoryList={CATEGORY_LIST} />
       <Footer />
     </Container>
   );
