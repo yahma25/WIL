@@ -27,7 +27,7 @@ type GatsbyLinkProps = {
   to: string;
 } & CategoryItemProps;
 
-const CategoryItem = styled(({ to, ...props }: GatsbyLinkProps) => (
+const CategoryItem = styled(({ active, to, ...props }: GatsbyLinkProps) => (
   <Link to={to} {...props} />
 ))`
   margin-right: 20px;
