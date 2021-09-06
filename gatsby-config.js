@@ -1,16 +1,17 @@
 module.exports = {
+  pathPrefix: '/WIL',
   siteMetadata: {
     title: 'What I Learned',
     description:
       '내가 무엇을 알고 모르는지 파악해보고, 다른 개발자에게 도움이 될 수 있는 지식을 전파하는 블로그',
     author: 'mhkim',
-    siteUrl: 'https://yahma25.github.io/',
+    siteUrl: 'https://yahma25.github.io/WIL',
   },
   plugins: [
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://yahma25.github.io/',
+        siteUrl: 'https://yahma25.github.io/WIL',
         stripQueryString: true,
       },
     },
