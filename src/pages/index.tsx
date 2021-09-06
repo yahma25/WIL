@@ -1,9 +1,9 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useMemo } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/common/GlobalStyle';
 import Introduction from 'components/main/Introduction';
 import Footer from 'components/common/Footer';
-import CategoryList from 'components/main/CategoryList';
+import CategoryList, { CategoryListProps } from 'components/main/CategoryList';
 import ArticleList, { ArticleType } from 'components/main/ArticleList';
 import { graphql } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
@@ -15,12 +15,6 @@ const Container = styled.div`
   flex-direction: column;
   height: 100%;
 `;
-
-const CATEGORY_LIST = {
-  All: 5,
-  Work: 2,
-  Web: 3,
-};
 
 type FeaturedImgType = {
   featuredImg: {
@@ -62,13 +56,38 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       ? 'All'
       : (parsed.category as CategoryType);
 
+  const categoryList = useMemo(
+    () =>
+      edges.reduce(
+        (
+          list: CategoryListProps['categoryList'],
+          {
+            node: {
+              frontmatter: { categories },
+            },
+          }: ArticleType,
+        ) => {
+          categories.forEach(category => {
+            if (list[category] === undefined) list[category] = 1;
+            else list[category]++;
+          });
+
+          list['All']++;
+
+          return list;
+        },
+        { All: 0 },
+      ),
+    [],
+  );
+
   return (
     <Container>
       <GlobalStyle />
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
-        categoryList={CATEGORY_LIST}
+        categoryList={categoryList}
       />
       <ArticleList
         articles={edges.map((articleType, idx) => {
