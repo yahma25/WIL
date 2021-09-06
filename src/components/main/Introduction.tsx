@@ -1,10 +1,11 @@
 import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import ProfileImage from 'components/main/ProfileImage';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 const Background = styled.div`
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  background-color: #252525;
   color: #fff;
 `;
 
@@ -43,11 +44,17 @@ const Title = styled.div`
   }
 `;
 
-const Introduction: FunctionComponent = function () {
+interface IntroductionProps {
+  profileImage: IGatsbyImageData;
+}
+
+const Introduction: FunctionComponent<IntroductionProps> = function ({
+  profileImage,
+}) {
   return (
     <Background>
       <Wrapper>
-        <ProfileImage />
+        <ProfileImage profileImage={profileImage} />
 
         <div>
           <SubTitle>안녕하세요</SubTitle>

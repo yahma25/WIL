@@ -2,13 +2,15 @@ import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { css } from '@emotion/react';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface ArticleItemProps {
   title: string;
   date: string;
   categories: string[];
   summary: string;
-  thumbnail: string;
+  featuredImgAlt: string;
+  gatsbyImageData: IGatsbyImageData;
   link: string;
 }
 
@@ -25,12 +27,11 @@ const ArticleItemWrapper = styled(Link)`
   }
 `;
 
-const ThumbnailImage = styled.img`
+const ThumbnailCss = css(`
   width: 100%;
   height: 200px;
   border-radius: 10px 10px 0 0;
-  object-fit: cover;
-`;
+`);
 
 const ArticleItemContent = styled.div`
   flex: 1;
@@ -91,12 +92,18 @@ const ArticleItem: FunctionComponent<ArticleItemProps> = function ({
   date,
   categories,
   summary,
-  thumbnail,
+  featuredImgAlt,
+  gatsbyImageData,
   link,
 }) {
   return (
     <ArticleItemWrapper to={link}>
-      <ThumbnailImage src={thumbnail} alt="Article Item Image" />
+      <GatsbyImage
+        alt={featuredImgAlt}
+        image={gatsbyImageData}
+        css={ThumbnailCss}
+      />
+
       <ArticleItemContent>
         <Title>{title}</Title>
         <Date>{date}</Date>
