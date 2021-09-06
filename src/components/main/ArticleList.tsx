@@ -1,7 +1,8 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useMemo } from 'react';
 import styled from '@emotion/styled';
 import ArticleItem from 'components/main/ArticleItem';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { CategoryType } from '../../model/Category/Types';
 
 export type ArticleType = {
   node: {
@@ -19,6 +20,7 @@ export type ArticleType = {
 };
 
 interface ArticleProps {
+  selectedCategory: CategoryType;
   articles: ArticleType[];
 }
 
@@ -37,10 +39,28 @@ const ArticleListWrapper = styled.div`
   }
 `;
 
-const ArticleList: FunctionComponent<ArticleProps> = function ({ articles }) {
+const ArticleList: FunctionComponent<ArticleProps> = function ({
+  selectedCategory,
+  articles,
+}) {
+  const articleListData = useMemo(
+    () =>
+      articles.filter(
+        ({
+          node: {
+            frontmatter: { categories },
+          },
+        }: ArticleType) =>
+          selectedCategory !== 'All'
+            ? categories.includes(selectedCategory)
+            : true,
+      ),
+    [selectedCategory],
+  );
+
   return (
     <ArticleListWrapper>
-      {articles.map(({ node: { id, frontmatter } }: ArticleType) => (
+      {articleListData.map(({ node: { id, frontmatter } }: ArticleType) => (
         <ArticleItem
           key={id}
           {...frontmatter}

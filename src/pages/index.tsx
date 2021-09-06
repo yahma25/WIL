@@ -90,6 +90,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
         categoryList={categoryList}
       />
       <ArticleList
+        selectedCategory={selectedCategory}
         articles={edges.map((articleType, idx) => {
           // articles 파라미터로 하나로 사용하기 위해
           // 중간에서 gatsbyImageData 주입.
