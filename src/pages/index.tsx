@@ -8,7 +8,7 @@ import ArticleList, { ArticleType } from 'components/main/ArticleList';
 import { graphql } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { CategoryType } from '../model/Category/Types';
-import queryString, { ParsedUrlQuery } from 'querystring';
+import queryString, { ParsedQuery } from 'query-string';
 
 const Container = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
   },
 }) {
-  const parsed: ParsedUrlQuery = queryString.parse(search);
+  const parsed: ParsedQuery<string> = queryString.parse(search);
   const selectedCategory: CategoryType =
     typeof parsed.category !== 'string' || !parsed.category
       ? 'All'
