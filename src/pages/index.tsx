@@ -7,6 +7,8 @@ import CategoryList from 'components/main/CategoryList';
 import ArticleList, { ArticleType } from 'components/main/ArticleList';
 import { graphql } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { CategoryType } from '../model/Category/Types';
+import queryString, { ParsedUrlQuery } from 'querystring';
 
 const Container = styled.div`
   display: flex;
@@ -29,6 +31,9 @@ type FeaturedImgType = {
 };
 
 interface IndexPageProps {
+  location: {
+    search: string;
+  };
   data: {
     allMarkdownRemark: {
       edges: ArticleType[];
@@ -43,6 +48,7 @@ interface IndexPageProps {
 }
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
+  location: { search },
   data: {
     allMarkdownRemark: { edges, nodes },
     file: {
@@ -50,11 +56,20 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
   },
 }) {
+  const parsed: ParsedUrlQuery = queryString.parse(search);
+  const selectedCategory: CategoryType =
+    typeof parsed.category !== 'string' || !parsed.category
+      ? 'All'
+      : (parsed.category as CategoryType);
+
   return (
     <Container>
       <GlobalStyle />
       <Introduction profileImage={gatsbyImageData} />
-      <CategoryList selectedCategory="Work" categoryList={CATEGORY_LIST} />
+      <CategoryList
+        selectedCategory={selectedCategory}
+        categoryList={CATEGORY_LIST}
+      />
       <ArticleList
         articles={edges.map((articleType, idx) => {
           // articles 파라미터로 하나로 사용하기 위해
