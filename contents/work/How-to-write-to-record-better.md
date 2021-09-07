@@ -9,6 +9,10 @@ featuredImgAlt: Thumbnail that is how to write to record better
 
 # 기록을 잘 할 수 있는 방법
 
+## 왜 기록하는가
+
+기록을 하고나서 필요할 때에 원하는 정보를 빠르게 얻기 위함.
+
 ## 무엇을 기록했는가
 
 ### 업무
