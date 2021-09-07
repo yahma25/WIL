@@ -17,6 +17,10 @@ featuredImgAlt: Thumbnail that is how to write to record better
 
 ### 업무
 
+신입 때는 작업 일지를 기록했었다
+
+게임 기획자로 일했을 때부터 작업 일지를 기록했어서 당연하듯이 습관처럼 해왔다.
+
 ### 개인
 
 ## 무엇이 좋았었나
