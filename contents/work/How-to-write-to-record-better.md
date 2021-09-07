@@ -6,3 +6,17 @@ summary: '일 잘하는 사람이 되기 위하여 기록을 잘 할 수 있는 
 featuredImgUrl: https://cdn.pixabay.com/photo/2015/07/02/10/40/writing-828911_960_720.jpg
 featuredImgAlt: Thumbnail that is how to write to record better
 ---
+
+# 기록을 잘 할 수 있는 방법
+
+## 무엇을 기록했는가
+
+### 업무
+
+### 개인
+
+## 무엇이 좋았었나
+
+## 무엇이 어려웠었나
+
+### 매일 지키는 것은 어려웠지만, 꾸준히 할 만 했었다
