@@ -33,6 +33,8 @@ featuredImgAlt: Thumbnail that is how to write to record better
 
 게임 기획자로 일했을 때부터 해왔던 습관이 있어서 어려움은 없었고, 현재까지도 문서 형식만 바뀌었을뿐 계속 기록하고 있다.
 
+#### 기술 문서 기록
+
 ### 개인
 
 ## 무엇이 좋았었나
