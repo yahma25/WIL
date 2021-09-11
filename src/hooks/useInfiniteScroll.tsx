@@ -1,4 +1,4 @@
-import { MutableRefObject, useMemo, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useMemo, useRef, useState } from 'react';
 import { ArticleType } from 'components/main/ArticleList';
 
 export type useInfiniteScrollType = {
@@ -31,6 +31,29 @@ const useInfiniteScroll = function (
       ),
     [selectedCategory],
   );
+
+  const observer: IntersectionObserver = new IntersectionObserver(
+    (entries, observer) => {
+      if (!entries[0].isIntersecting) return;
+
+      setCount(count => count + 1);
+      observer.disconnect();
+    },
+  );
+
+  useEffect(() => {
+    if (
+      count * NUMBER_IF_ITEMS_PER_PAGE >= articleListByCategory.length ||
+      containerRef.current == null ||
+      containerRef.current?.children.length === 0
+    ) {
+      return;
+    }
+
+    observer.observe(
+      containerRef.current?.children[containerRef.current?.children.length - 1],
+    );
+  }, [count, selectedCategory]);
 
   return {
     containerRef,
