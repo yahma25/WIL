@@ -1,8 +1,11 @@
-import { FunctionComponent, useMemo } from 'react';
+import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import ArticleItem from 'components/main/ArticleItem';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { CategoryType } from '../../model/Category/Types';
+import useInfiniteScroll, {
+  useInfiniteScrollType,
+} from 'hooks/useInfiniteScroll';
 
 export type ArticleType = {
   node: {
@@ -43,24 +46,12 @@ const ArticleList: FunctionComponent<ArticleProps> = function ({
   selectedCategory,
   articles,
 }) {
-  const articleListData = useMemo(
-    () =>
-      articles.filter(
-        ({
-          node: {
-            frontmatter: { categories },
-          },
-        }: ArticleType) =>
-          selectedCategory !== 'All'
-            ? categories.includes(selectedCategory)
-            : true,
-      ),
-    [selectedCategory],
-  );
+  const { containerRef, articleList }: useInfiniteScrollType =
+    useInfiniteScroll(selectedCategory, articles);
 
   return (
-    <ArticleListWrapper>
-      {articleListData.map(({ node: { id, frontmatter } }: ArticleType) => (
+    <ArticleListWrapper ref={containerRef}>
+      {articleList.map(({ node: { id, frontmatter } }: ArticleType) => (
         <ArticleItem
           key={id}
           {...frontmatter}
