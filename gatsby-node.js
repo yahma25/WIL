@@ -45,6 +45,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `);
 };
+
 exports.onCreateNode = async ({
   node,
   actions: { createNode },
