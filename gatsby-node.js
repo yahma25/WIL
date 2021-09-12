@@ -29,7 +29,10 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
 // ex) 프로젝트 내에 이미지를 사용하지 않고
 //    'https://placekitten.com/800/600' 사용
 // 공식문서 https://www.gatsbyjs.com/docs/how-to/images-and-media/preprocessing-external-images/
-const { createRemoteFileNode } = require('gatsby-source-filesystem');
+const {
+  createRemoteFileNode,
+  createFilePath,
+} = require('gatsby-source-filesystem');
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -48,10 +51,11 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.onCreateNode = async ({
   node,
-  actions: { createNode },
+  actions: { createNode, createNodeField },
   store,
   cache,
   createNodeId,
+  getNode,
 }) => {
   // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
   if (
@@ -70,5 +74,9 @@ exports.onCreateNode = async ({
     if (fileNode) {
       node.featuredImg___NODE = fileNode.id;
     }
+
+    // Generate a Slug each article data
+    const slug = createFilePath({ node, getNode });
+    createNodeField({ node, name: 'slug', value: slug });
   }
 };
