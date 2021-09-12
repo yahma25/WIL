@@ -26,8 +26,13 @@ jobs:
       #    deploy-branch: gh-pages
       #    gatsby-args: --prefix-paths
           
+      # 모듈 의존성 최신화
       - name: Install dependencies
         run: yarn --prod
+      
+      # Gatsby cli. 명령어를 사용하여 배포
+      - name: Install gatsby-cli
+        run: yarn add gatsby-cli@3.12.0
 
       # Runs a single command using the runners shell
       - name: Deploy
