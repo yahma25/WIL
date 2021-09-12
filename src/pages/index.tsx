@@ -114,6 +114,9 @@ export const queryArticleList = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             summary
