@@ -29,7 +29,10 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
 // ex) 프로젝트 내에 이미지를 사용하지 않고
 //    'https://placekitten.com/800/600' 사용
 // 공식문서 https://www.gatsbyjs.com/docs/how-to/images-and-media/preprocessing-external-images/
-const { createRemoteFileNode } = require('gatsby-source-filesystem');
+const {
+  createRemoteFileNode,
+  createFilePath,
+} = require('gatsby-source-filesystem');
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -45,12 +48,14 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `);
 };
+
 exports.onCreateNode = async ({
   node,
-  actions: { createNode },
+  actions: { createNode, createNodeField },
   store,
   cache,
   createNodeId,
+  getNode,
 }) => {
   // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
   if (
@@ -69,5 +74,68 @@ exports.onCreateNode = async ({
     if (fileNode) {
       node.featuredImg___NODE = fileNode.id;
     }
+
+    // Generate a Slug each article data
+    const slug = createFilePath({ node, getNode });
+    createNodeField({ node, name: 'slug', value: slug });
   }
+};
+
+/**
+ * 동적으로 마크다운 페이지 생성
+ * 공식 문서 https://www.gatsbyjs.com/docs/programmatically-create-pages-from-data/
+ */
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions;
+
+  // 모든 마크다운 데이터의 slug 필드를 조회
+  // 메인 페이지 목록 정렬와 동일하게 날짜, 제목 내림차순
+  const queryAllMarkdownData = await graphql(
+    `
+      {
+        allMarkdownRemark(
+          sort: {
+            order: DESC
+            fields: [frontmatter___date, frontmatter___title]
+          }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+
+  if (queryAllMarkdownData.errors) {
+    reporter.panicOnBuild(`Error while running query`);
+    return;
+  }
+
+  const ArticleTemplateComponent = path.resolve(
+    __dirname,
+    'src/templates/ArticleTemplate.tsx',
+  );
+
+  const generateArticlePage = ({
+    node: {
+      fields: { slug },
+    },
+  }) => {
+    const pageOptions = {
+      path: slug,
+      component: ArticleTemplateComponent,
+      context: { slug },
+    };
+
+    createPage(pageOptions);
+  };
+
+  queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(
+    generateArticlePage,
+  );
 };

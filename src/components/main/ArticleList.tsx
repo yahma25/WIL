@@ -10,6 +10,9 @@ import useInfiniteScroll, {
 export type ArticleType = {
   node: {
     id: string;
+    fields: {
+      slug: string;
+    };
     frontmatter: {
       title: string;
       summary: string;
@@ -45,19 +48,23 @@ const ArticleListWrapper = styled.div`
 const ArticleList: FunctionComponent<ArticleProps> = function ({
   selectedCategory,
   articles,
-}) {
+}: ArticleProps) {
   const { containerRef, articleList }: useInfiniteScrollType =
     useInfiniteScroll(selectedCategory, articles);
 
   return (
     <ArticleListWrapper ref={containerRef}>
-      {articleList.map(({ node: { id, frontmatter } }: ArticleType) => (
-        <ArticleItem
-          key={id}
-          {...frontmatter}
-          link={'<https://www.google.co.kr/>'}
-        />
-      ))}
+      {articleList.map(
+        ({
+          node: {
+            id,
+            fields: { slug },
+            frontmatter,
+          },
+        }: ArticleType) => (
+          <ArticleItem key={id} {...frontmatter} link={slug} />
+        ),
+      )}
     </ArticleListWrapper>
   );
 };

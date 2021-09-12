@@ -1,14 +1,13 @@
 import { FunctionComponent, useMemo } from 'react';
 import styled from '@emotion/styled';
-import GlobalStyle from 'components/common/GlobalStyle';
 import Introduction from 'components/main/Introduction';
-import Footer from 'components/common/Footer';
 import CategoryList, { CategoryListProps } from 'components/main/CategoryList';
 import ArticleList, { ArticleType } from 'components/main/ArticleList';
 import { graphql } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { CategoryType } from '../model/Category/Types';
 import queryString, { ParsedQuery } from 'query-string';
+import Template from 'components/common/Template';
 
 const Container = styled.div`
   display: flex;
@@ -82,25 +81,25 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   );
 
   return (
-    <Container>
-      <GlobalStyle />
-      <Introduction profileImage={gatsbyImageData} />
-      <CategoryList
-        selectedCategory={selectedCategory}
-        categoryList={categoryList}
-      />
-      <ArticleList
-        selectedCategory={selectedCategory}
-        articles={edges.map((articleType, idx) => {
-          // articles 파라미터로 하나로 사용하기 위해
-          // 중간에서 gatsbyImageData 주입.
-          articleType.node.frontmatter.gatsbyImageData =
-            nodes[idx].featuredImg.childImageSharp.gatsbyImageData;
-          return articleType;
-        })}
-      />
-      <Footer />
-    </Container>
+    <Template>
+      <Container>
+        <Introduction profileImage={gatsbyImageData} />
+        <CategoryList
+          selectedCategory={selectedCategory}
+          categoryList={categoryList}
+        />
+        <ArticleList
+          selectedCategory={selectedCategory}
+          articles={edges.map((articleType, idx) => {
+            // articles 파라미터로 하나로 사용하기 위해
+            // 중간에서 gatsbyImageData 주입.
+            articleType.node.frontmatter.gatsbyImageData =
+              nodes[idx].featuredImg.childImageSharp.gatsbyImageData;
+            return articleType;
+          })}
+        />
+      </Container>
+    </Template>
   );
 };
 
@@ -114,6 +113,9 @@ export const queryArticleList = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             summary
