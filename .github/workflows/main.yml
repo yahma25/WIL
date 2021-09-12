@@ -39,6 +39,7 @@ jobs:
         run: |
           git config --global user.name "mhkim"
           git config --global user.email "yahma25@gmail.com"
+          git config --global credential.helper cache
 
       # Runs a single command using the runners shell
       - name: Deploy
