@@ -1,5 +1,14 @@
+/**
+ * 환경설정 파일 사용(.env.development, .env.production)
+ * 공식 문서 https://www.gatsbyjs.com/docs/how-to/local-development/environment-variables/
+ */
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
-  pathPrefix: '/WIL',
+  // develop 환경과 production 환경의 root 경로를 다르게 함
+  pathPrefix: process.env.PATH_PREFIX,
   siteMetadata: {
     title: 'What I Learned',
     description:
