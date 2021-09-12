@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Template from 'components/common/Template';
 import ArticleHead from 'components/article/ArticleHead';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import ArticleContent from 'components/article/AticleContent';
 
 interface ArticleTemplateProps {
   data: {
@@ -39,7 +40,7 @@ const ArticleTemplate: FunctionComponent<ArticleTemplateProps> = function ({
   },
 }) {
   const {
-    node: { frontmatter },
+    node: { html, frontmatter },
   } = edges[0];
   const {
     featuredImg: {
@@ -49,6 +50,7 @@ const ArticleTemplate: FunctionComponent<ArticleTemplateProps> = function ({
   return (
     <Template>
       <ArticleHead image={gatsbyImageData} {...frontmatter} />
+      <ArticleContent html={html} />
     </Template>
   );
 };
