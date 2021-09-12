@@ -1,6 +1,9 @@
 import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import ArticleHeadInfo, {
+  ArticleHeadInfoProps,
+} from 'components/article/ArticleHeadInfo';
 
 type GatsbyImgProps = {
   image: IGatsbyImageData;
@@ -8,7 +11,7 @@ type GatsbyImgProps = {
   className?: string;
 };
 
-export interface ArticleHeadProps {
+export interface ArticleHeadProps extends ArticleHeadInfoProps {
   image: IGatsbyImageData;
 }
 
@@ -29,11 +32,15 @@ const BackgroundImage = styled((props: GatsbyImgProps) => (
 `;
 
 const ArticleHead: FunctionComponent<ArticleHeadProps> = function ({
+  title,
+  date,
+  categories,
   image,
 }: ArticleHeadProps) {
   return (
     <ArticleHeadWrapper>
       <BackgroundImage image={image} alt="Article background image" />
+      <ArticleHeadInfo title={title} date={date} categories={categories} />
     </ArticleHeadWrapper>
   );
 };

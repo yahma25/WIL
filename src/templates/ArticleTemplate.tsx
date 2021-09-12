@@ -11,6 +11,12 @@ interface ArticleTemplateProps {
         {
           node: {
             html: string;
+            frontmatter: {
+              title: string;
+              summary: string;
+              date: string;
+              categories: string[];
+            };
           };
         },
       ];
@@ -33,7 +39,7 @@ const ArticleTemplate: FunctionComponent<ArticleTemplateProps> = function ({
   },
 }) {
   const {
-    node: { html },
+    node: { frontmatter },
   } = edges[0];
   const {
     featuredImg: {
@@ -42,7 +48,7 @@ const ArticleTemplate: FunctionComponent<ArticleTemplateProps> = function ({
   } = nodes[0];
   return (
     <Template>
-      <ArticleHead image={gatsbyImageData} />
+      <ArticleHead image={gatsbyImageData} {...frontmatter} />
     </Template>
   );
 };
