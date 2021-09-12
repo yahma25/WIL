@@ -45,7 +45,7 @@ const ArticleListWrapper = styled.div`
 const ArticleList: FunctionComponent<ArticleProps> = function ({
   selectedCategory,
   articles,
-}) {
+}: ArticleProps) {
   const { containerRef, articleList }: useInfiniteScrollType =
     useInfiniteScroll(selectedCategory, articles);
 
