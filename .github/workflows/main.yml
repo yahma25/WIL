@@ -33,6 +33,12 @@ jobs:
       # Gatsby cli. 명령어를 사용하여 배포
       - name: Install gatsby-cli
         run: yarn add gatsby-cli@3.12.0
+        
+      # git 사용자 등록
+      - name: Set config user
+        run: |
+          git config --global user.name "mhkim"
+          git config --global user.email "yahma25@gmail.com"
 
       # Runs a single command using the runners shell
       - name: Deploy
