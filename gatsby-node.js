@@ -80,3 +80,62 @@ exports.onCreateNode = async ({
     createNodeField({ node, name: 'slug', value: slug });
   }
 };
+
+/**
+ * 동적으로 마크다운 페이지 생성
+ * 공식 문서 https://www.gatsbyjs.com/docs/programmatically-create-pages-from-data/
+ */
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions;
+
+  // 모든 마크다운 데이터의 slug 필드를 조회
+  // 메인 페이지 목록 정렬와 동일하게 날짜, 제목 내림차순
+  const queryAllMarkdownData = await graphql(
+    `
+      {
+        allMarkdownRemark(
+          sort: {
+            order: DESC
+            fields: [frontmatter___date, frontmatter___title]
+          }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+
+  if (queryAllMarkdownData.errors) {
+    reporter.panicOnBuild(`Error while running query`);
+    return;
+  }
+
+  const ArticleTemplateComponent = path.resolve(
+    __dirname,
+    'src/templates/ArticleTemplate.tsx',
+  );
+
+  const generateArticlePage = ({
+    node: {
+      fields: { slug },
+    },
+  }) => {
+    const pageOptions = {
+      path: slug,
+      component: ArticleTemplateComponent,
+      context: { slug },
+    };
+
+    createPage(pageOptions);
+  };
+
+  queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(
+    generateArticlePage,
+  );
+};
