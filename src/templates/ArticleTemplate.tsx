@@ -1,12 +1,13 @@
 import { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
+import Template from 'components/common/Template';
 
 interface ArticleTemplateProps {}
 
 const ArticleTemplate: FunctionComponent<ArticleTemplateProps> = function (
   props,
 ) {
-  return <div>Article Template</div>;
+  return <Template>Article Template</Template>;
 };
 
 export default ArticleTemplate;
