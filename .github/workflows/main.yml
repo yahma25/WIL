@@ -36,10 +36,12 @@ jobs:
         
       # git 사용자 등록
       - name: Set config user
+        env:
+          USER_TOKEN: ${{ secrets.TOKEN }}
         run: |
           git config --global user.name "mhkim"
           git config --global user.email "yahma25@gmail.com"
-          git config --global credential.helper cache
+          git remote add origin https://yahma25:$USER_TOKEN@github.com/yahma25/WIL.git
 
       # Runs a single command using the runners shell
       - name: Deploy
