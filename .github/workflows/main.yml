@@ -41,6 +41,13 @@ jobs:
         run: |
           git config --global user.name "yahma25"
           git config --global user.email "yahma25@gmail.com"
+          
+      # SSH
+      # https://zellwk.com/blog/github-actions-deploy/
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       # Runs a single command using the runners shell
       - name: Deploy
