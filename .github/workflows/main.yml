@@ -32,7 +32,7 @@ jobs:
       
       # Gatsby cli. 명령어를 사용하여 배포
       - name: Install gatsby-cli
-        run: yarn add gatsby-cli@3.12.0
+        run: yarn global add gatsby-cli@3.12.0
         
       # git 사용자 등록
       - name: Set config user
@@ -41,6 +41,13 @@ jobs:
         run: |
           git config --global user.name "yahma25"
           git config --global user.email "yahma25@gmail.com"
+          
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.ssh_private_key }}" > ~/.ssh/deploy_key
+          sudo chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.host }}" > ~/.ssh/known_hosts
 
       # Runs a single command using the runners shell
       - name: Deploy
