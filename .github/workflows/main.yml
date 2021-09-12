@@ -39,9 +39,8 @@ jobs:
         env:
           USER_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          git config --global user.name "mhkim"
+          git config --global user.name "yahma25"
           git config --global user.email "yahma25@gmail.com"
-          git remote add origin https://yahma25:$USER_TOKEN@github.com/yahma25/WIL.git
 
       # Runs a single command using the runners shell
       - name: Deploy
