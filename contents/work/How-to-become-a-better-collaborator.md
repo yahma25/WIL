@@ -13,8 +13,6 @@ featuredImgAlt: Thumbnail that is How to become a better collaborator
 
 사전적 의미(출처: 네이버 어학사전)를 살펴보고 의미를 되새겨 본다.
 
-<br>
-
 ### 협업 (collaboration)
 
 *[명사]*
@@ -26,8 +24,6 @@ featuredImgAlt: Thumbnail that is How to become a better collaborator
 
 1. [경제] 많은 노동자들이 협력하여 계획적으로 노동하다.
 2. [경제] 생산의 모든 과정을 여러 전문적인 부문으로 나누어 여러 사람이 분담하여 일을 완성하다.
-
-<br>
 
 ### 분업 (division of labor)
 
@@ -58,8 +54,6 @@ featuredImgAlt: Thumbnail that is How to become a better collaborator
 > * 힘을 합하여 서로 도움
 > * 서로 다른 부서에서 일하는 둘 이상의 사람들이 정해진 프로세스와 역할 내에서 도움을 주고받으며 일하는 것
 > * `서로 목표가 다를 수 있음`
-
-<br>
 
 ## 협업을 잘한다는 것은?
 
@@ -96,8 +90,6 @@ featuredImgAlt: Thumbnail that is How to become a better collaborator
 ### 함께 정했던 규칙은 무엇인가?
 
 ### 역할은 어떻게 분배했었는가?
-
-<br>
 
 ## 이 밖에
 

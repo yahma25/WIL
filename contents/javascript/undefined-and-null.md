@@ -32,18 +32,12 @@ const xxx = null;
 * 참조 관계를 끊을 때([GC](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management#garbage_collection) 동작을 위함)
 * null 체크할 때(ex. `value == null ? a : b`).  
 
-<br>
-
 `"TypeScript에서는 null을 사용하면 안되는 것인가?"`라는 의문을 품고 관련 내용을 찾아봤다.
-
-<br>
 
 우선 [Microsoft TypeScript 코딩 가이드](https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines#null-and-undefined) 를 보면 이유가 적혀있진 않았다.  
 누군가 [Why "Use undefined, do not use null."? #8940](https://github.com/Microsoft/TypeScript/issues/8940) 이슈에 질문을 남겨놓은 것을 찾아봤는데 TypeScript 컴파일러를 개발하는 가이드일뿐 TypeScript 일반 가이드는 아니라고 답변했다.
 
 [Nordic.js 2014 • Douglas Crockford - The Better Parts](https://www.youtube.com/watch?v=PSGEjv3Tqo0&t=561s)
-
-<br>
 
 ## 의미 비교
 
@@ -54,11 +48,7 @@ const xxx = null;
 * `undefined value`, 변수가 값을 할당된 적이 없이 사용된 기본값
 * `null value`, 객체 값이 의도적으로 없음을 나타내는 기본값
 
-<br>
-
 ## 동작 비교
-
-<br>
 
 ### 타입
 
@@ -75,8 +65,6 @@ console.log(false == undefined); // false
 console.log(typeof undefined); // 'undefined'
 console.log(typeof null); // 'object'
 ```
-
-<br>
 
 ### undefined
 
@@ -109,11 +97,7 @@ const nums = [1, 2, 3];
 console.log(nums.find(num => num === 4)); // undefined
 ```
 
-<br>
-
 ### null
-
-<br>
 
 #### DOM built-in function
 ```javascript
@@ -125,8 +109,6 @@ document.getElementById('foo'); // null, 'foo'라는 Id가 설정된 element가 
 * reference: [Adding a Ref to a DOM Element](https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-dom-element)
 
 #### 백엔드 팀에서 없음을 의미하기 위해 API 응답을 null로 반환
-
-<br>
 
 ## 동작의 차이
 
@@ -145,13 +127,9 @@ console.log(JSON.stringify({life: undefined})); // {}
 console.log(JSON.stringify({life: null})); // {"life":null}
 ```
 
-<br>
-
 ## --strictNullChecks
 
 [TypeScript Playground 테스트](https://www.typescriptlang.org/play?ts=4.4.0-beta#code/DYUwLgBAHgXBB2BXAtgIxAJwNwCgoQF4IBGLCCAegogHkBrPQiReAExADMBLeEVsytQCiGDAHsMjIkmDABVCCPGScoSAE84SNJggAfZm048+udU1LkF9HOaIt23XvyvUbdhIlnzhoiTlVwCAAvLRR0DH1PWSiHY2dcYIsfWgYk+yMnU1dUnHTouRybKQh1FKV-fCJg8r9JDygU9yYanIrJfMaitKYy7oCOFgBjMC4xeAgOMTEACgBDAH4wnQwASggAbxxyCDnBQgA+TxXYzJNWHABfAeHR8YhUOYx55YjTx3P1rZ29hQIj7RvAxxLIXS5AA)
-
-<br>
 
 ## Reference
 
