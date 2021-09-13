@@ -8,8 +8,8 @@ const defaultStyle = css`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-      Helvetica Neue, sans-serif;
+    font-family: -apple-system, Helvetica Neue, Helvetica, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
   }
 
   html,
