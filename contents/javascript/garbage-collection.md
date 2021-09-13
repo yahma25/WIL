@@ -9,21 +9,15 @@ featuredImgAlt: Garbage Collection in JavaScript
 
 # 가비지 컬렉션(Garbage Collection)
 
-<br/>
-
 ## 정의
 
 할당된 메모리가 쓸모없어졌을 때 자동으로 해제시켜주는 방법
-
-<br/>
 
 ## 메모리 라이프 사이클
 
 1. 필요할 때 메모리 할당
 2. 읽기/쓰기로 값 사용
 3. 필요 없으면 해제
-
-<br/>
 
 ### 메모리 할당
 
@@ -47,8 +41,6 @@ function func(a) {
 var date = new Date();
 ```
 
-<br/>
-
 ### 값 사용
 
 ```js
@@ -64,13 +56,9 @@ function sum(a, b) {
 var total = sum(5, 5);
 ```
 
-<br/>
-
 ### 메모리 해제
 
 가비지 컬렉터(Garbage Collector)가 할당된 메모리를 계속 추적하고 사용하지 않는 메모리를 발견하면 회수한다. `사용하지 않는 메모리`를 판단하는 방법이 가비지 컬렉션의 핵심이다.
-
-<br/>
 
 ## 사용하지 않는 메모리 판별
 
@@ -128,8 +116,6 @@ memoryLeak();
 
 Internet Explorer 6, 7은 이 문제를 갖고 있음
 
-<br/>
-
 ### 방식 2) Mark-and-sweep
 
 참조 연결이 `닿을 수 있는 객체들(Reachable Objects)`을 체크하고 체크되지 않은 대상은 가비지 컬렉션 대상으로 지정하여 해제한다.
@@ -153,8 +139,6 @@ Internet Explorer 6, 7은 이 문제를 갖고 있음
 **idle-time collection** 
 
 가비지 컬렉터는 CPU가 유휴 상태일 때에만 가비지 컬렉션을 실행한다.
-
-<br/>
 
 ## 메모리 누수
 
