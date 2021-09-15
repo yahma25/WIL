@@ -17,6 +17,11 @@ const ArticleHeadInfoWrapper = styled.div`
   margin: 0 auto;
   padding: 60px 0;
   color: #ffffff;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 30px 20px;
+  }
 `;
 
 const PrevPageIcon = styled.div`
@@ -44,13 +49,17 @@ const Title = styled.div`
   font-size: 45px;
   font-weight: 600;
   line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 34px;
+  }
 `;
 
 const ArticleData = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 18px;
   font-weight: 700;
 `;
