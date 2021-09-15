@@ -66,6 +66,32 @@ const MarkdownRenderer = styled.section`
     color: hsla(0, 0%, 0%, 0.8);
     background-color: #f4f4f4;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 60px 20px;
+    font-size: 1.1rem;
+
+    h1 {
+      font-size: 23px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 17px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    hr {
+      margin: 50px 0;
+    }
+  }
 `;
 
 const ArticleContent: FunctionComponent<ArticleContentProps> = function ({
