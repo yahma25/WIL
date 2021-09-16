@@ -9,7 +9,7 @@ const NotFoundPageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
 `;
 
 const NotFoundPageWrapper = styled.div`
