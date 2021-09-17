@@ -112,5 +112,12 @@ module.exports = {
         ],
       },
     },
+    // 크롤링 로봇
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 };
