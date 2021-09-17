@@ -24,6 +24,7 @@ interface ArticleTemplateProps {
       nodes: [
         {
           featuredImg: {
+            publicURL: string;
             childImageSharp: {
               gatsbyImageData: IGatsbyImageData;
             };
@@ -32,24 +33,37 @@ interface ArticleTemplateProps {
       ];
     };
   };
+  location: {
+    href: string;
+  };
 }
 
 const ArticleTemplate: FunctionComponent<ArticleTemplateProps> = function ({
   data: {
     allMarkdownRemark: { edges, nodes },
   },
-}) {
+  location: { href },
+}: ArticleTemplateProps) {
   const {
-    node: { html, frontmatter },
+    node: {
+      html,
+      frontmatter: { title, summary, date, categories },
+    },
   } = edges[0];
   const {
     featuredImg: {
+      publicURL,
       childImageSharp: { gatsbyImageData },
     },
   } = nodes[0];
   return (
-    <Template>
-      <ArticleHead image={gatsbyImageData} {...frontmatter} />
+    <Template title={title} description={summary} url={href} image={publicURL}>
+      <ArticleHead
+        title={title}
+        date={date}
+        categories={categories}
+        image={gatsbyImageData}
+      />
       <ArticleContent html={html} />
     </Template>
   );
@@ -75,6 +89,7 @@ export const queryMarkdownDataBySlug = graphql`
       }
       nodes {
         featuredImg {
+          publicURL
           childImageSharp {
             gatsbyImageData(
               quality: 100

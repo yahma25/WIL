@@ -28,11 +28,19 @@ interface IndexPageProps {
     search: string;
   };
   data: {
+    site: {
+      siteMetadata: {
+        title: string;
+        description: string;
+        siteUrl: string;
+      };
+    };
     allMarkdownRemark: {
       edges: ArticleType[];
       nodes: FeaturedImgType[];
     };
     file: {
+      publicURL: string;
       childImageSharp: {
         gatsbyImageData: IGatsbyImageData;
       };
@@ -43,12 +51,16 @@ interface IndexPageProps {
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
+    site: {
+      siteMetadata: { title, description, siteUrl },
+    },
     allMarkdownRemark: { edges, nodes },
     file: {
+      publicURL,
       childImageSharp: { gatsbyImageData },
     },
   },
-}) {
+}: IndexPageProps) {
   const parsed: ParsedQuery<string> = queryString.parse(search);
   const selectedCategory: CategoryType =
     typeof parsed.category !== 'string' || !parsed.category
@@ -81,7 +93,12 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   );
 
   return (
-    <Template>
+    <Template
+      title={title}
+      description={description}
+      url={siteUrl}
+      image={publicURL}
+    >
       <Container>
         <Introduction profileImage={gatsbyImageData} />
         <CategoryList
@@ -107,6 +124,13 @@ export default IndexPage;
 
 export const queryArticleList = graphql`
   query queryArticleList {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
     ) {
@@ -143,6 +167,7 @@ export const queryArticleList = graphql`
       }
     }
     file(name: { eq: "profile" }) {
+      publicURL
       childImageSharp {
         gatsbyImageData(
           quality: 100
