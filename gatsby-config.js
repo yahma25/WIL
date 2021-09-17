@@ -12,7 +12,7 @@ module.exports = {
   siteMetadata: {
     title: 'What I Learned',
     description:
-      '내가 무엇을 알고 모르는지 파악해보고, 다른 개발자에게 도움이 될 수 있는 지식을 전파하는 블로그',
+      '내가 무엇을 알고 모르는지 파악해보고, 다른 이에게 도움이 될 수 있는 지식을 전파하는 블로그입니다.',
     author: 'mhkim',
     siteUrl: 'https://yahma25.github.io/WIL',
   },
