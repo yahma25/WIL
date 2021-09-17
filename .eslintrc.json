@@ -20,7 +20,7 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "ignorePatterns": ["dist/", "node_modules/"],
+  "ignorePatterns": ["dist/", "node_modules/", "**/*.js"],
   "rules": {
     "prettier/prettier": [
       "error",
