@@ -69,7 +69,7 @@ const SubTitle = styled.div`
   font-weight: 400;
 
   @media (max-width: 768px) {
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 
@@ -79,7 +79,7 @@ const Title = styled.div`
   font-weight: 700;
 
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
 
