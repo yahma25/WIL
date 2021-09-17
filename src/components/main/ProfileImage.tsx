@@ -7,9 +7,8 @@ export interface ProfileImageProps {
 }
 
 const profileImageCss = css(`
-  width: 250px;
-  height: 250px;
-  margin-bottom: 30px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
 
   @media (max-width: 768px) {
