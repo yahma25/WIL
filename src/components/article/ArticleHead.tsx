@@ -15,7 +15,7 @@ export interface ArticleHeadProps extends ArticleHeadInfoProps {
   image: IGatsbyImageData;
 }
 
-const ArticleHeadWrapper = styled.div`
+const ArticleHeadWrapper = styled.header`
   position: relative;
   width: 100%;
   height: 400px;
