@@ -11,14 +11,14 @@ const Background = styled.div`
 
   @media (max-width: 768px) {
     background: none;
-    height: 200px;
+    height: 220px;
   }
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   flex: 1;
   margin: 0 auto;
@@ -26,17 +26,19 @@ const Wrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 30px 20px 0;
+    padding: 30px 24px 0;
   }
 `;
 
 const BackgroundImageWrapper = styled.div`
   display: flex;
   flex: 2;
+  width: 100%;
 
   @media (max-width: 768px) {
     position: absolute;
     z-index: -1;
+    height: 220px;
   }
 `;
 
@@ -49,7 +51,8 @@ type GatsbyImgProps = {
 const BackgroundImage = styled((props: GatsbyImgProps) => (
   <GatsbyImage {...props} />
 ))`
-  filter: brightness(0.5);
+  width: 100%;
+  filter: brightness(0.4);
 `;
 
 const TitleWrapper = styled.div`
@@ -95,7 +98,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
         <ProfileImage profileImage={profileImage} />
 
         <TitleWrapper>
-          <SubTitle>일 잘하는 사람이 되려고 하는</SubTitle>
+          <SubTitle>어제 보다 오늘 더 성장 중인</SubTitle>
           <Title>개발자 김명호입니다.</Title>
         </TitleWrapper>
       </Wrapper>

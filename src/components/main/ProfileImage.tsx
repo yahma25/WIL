@@ -12,8 +12,8 @@ const profileImageCss = css(`
   border-radius: 50%;
 
   @media (max-width: 768px) {
-    width: 95px;
-    height: 95px;
+    width: 80px;
+    height: 80px;
   }
 `);
 
