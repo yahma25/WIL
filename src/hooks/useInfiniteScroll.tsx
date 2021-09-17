@@ -39,7 +39,7 @@ const useInfiniteScroll = function (
       if (!entries[0].isIntersecting) return;
 
       setCount(count => count + 1);
-      observer.disconnect();
+      observer.unobserve(entries[0].target);
     });
   });
 
