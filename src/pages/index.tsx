@@ -23,6 +23,14 @@ type FeaturedImgType = {
   };
 };
 
+type ImageFileType = {
+  publicURL: string;
+  name: string;
+  childImageSharp: {
+    gatsbyImageData: IGatsbyImageData;
+  };
+};
+
 interface IndexPageProps {
   location: {
     search: string;
@@ -39,11 +47,8 @@ interface IndexPageProps {
       edges: ArticleType[];
       nodes: FeaturedImgType[];
     };
-    file: {
-      publicURL: string;
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData;
-      };
+    allFile: {
+      nodes: ImageFileType[];
     };
   };
 }
@@ -55,10 +60,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       siteMetadata: { title, description, siteUrl },
     },
     allMarkdownRemark: { edges, nodes },
-    file: {
-      publicURL,
-      childImageSharp: { gatsbyImageData },
-    },
+    allFile,
   },
 }: IndexPageProps) {
   const parsed: ParsedQuery<string> = queryString.parse(search);
@@ -92,15 +94,29 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     [],
   );
 
+  const imgFileList: ImageFileType[] = Array.from(allFile.nodes);
+
+  const profileImage = imgFileList.find(file => file.name === 'profile')
+    .childImageSharp.gatsbyImageData;
+  const indexPublicURL = imgFileList.find(
+    file => file.name === 'profile-ryan',
+  ).publicURL;
+  const backgroundImage = imgFileList.find(
+    file => file.name === 'just-go-when-having-goal',
+  ).childImageSharp.gatsbyImageData;
+
   return (
     <Template
       title={title}
       description={description}
       url={siteUrl}
-      image={publicURL}
+      image={indexPublicURL}
     >
       <Container>
-        <Introduction profileImage={gatsbyImageData} />
+        <Introduction
+          profileImage={profileImage}
+          backgroundImage={backgroundImage}
+        />
         <CategoryList
           selectedCategory={selectedCategory}
           categoryList={categoryList}
@@ -166,18 +182,24 @@ export const queryArticleList = graphql`
         }
       }
     }
-    file(name: { eq: "profile" }) {
-      publicURL
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          placeholder: BLURRED
-          formats: [AUTO, WEBP]
-          transformOptions: { fit: INSIDE }
-          layout: CONSTRAINED
-          width: 250
-          height: 250
-        )
+    allFile(
+      filter: {
+        name: { in: ["profile", "profile-ryan", "just-go-when-having-goal"] }
+      }
+    ) {
+      nodes {
+        name
+        publicURL
+        childImageSharp {
+          gatsbyImageData(
+            quality: 100
+            placeholder: BLURRED
+            formats: [AUTO, WEBP]
+            transformOptions: { fit: INSIDE }
+            layout: CONSTRAINED
+            height: 400
+          )
+        }
       }
     }
   }
