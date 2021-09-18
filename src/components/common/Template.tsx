@@ -54,11 +54,6 @@ const Template: FunctionComponent<TemplateProps> = function ({
           name="google-site-verification"
           content="J8DdnSmlxekSos6icVzhFH7fmpvNmC08ZA3hzWRNBzg"
         />
-        {/* Naver Search Advisor에 사이트 소유자 인증 */}
-        <meta
-          name="naver-site-verification"
-          content="238246b3c2880f4ef63161bf09504768aaaacc0c"
-        />
 
         <html lang="ko" />
       </Helmet>
