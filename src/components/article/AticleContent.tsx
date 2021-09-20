@@ -11,21 +11,28 @@ const MarkdownRenderer = styled.section`
   width: 768px;
   margin: 0 auto;
   padding: 100px 0;
-  font-size: 1.2rem;
+  font-size: 16px;
   line-height: 1.8;
 
   h1 {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   h2 {
-    font-size: 25px;
-    margin-top: 20px;
+    font-size: 28px;
   }
 
+  h3 {
+    font-size: 25px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  h2,
   h3,
   h4 {
-    font-size: 20px;
     margin-top: 20px;
   }
 
@@ -63,26 +70,22 @@ const MarkdownRenderer = styled.section`
   }
 
   code[class='language-text'] {
-    color: hsla(0, 0%, 0%, 0.8);
+    color: hsla(0, 0%, 0%, 0.6);
     background-color: #f4f4f4;
+    padding: 1px 4px;
+
+    // common css 무효화
+    text-shadow: none;
+    &:before,
+    &:after {
+      letter-spacing: 0;
+      content: none;
+    }
   }
 
   @media (max-width: 768px) {
     width: 100%;
     padding: 60px 20px;
-    font-size: 1.1rem;
-
-    h1 {
-      font-size: 23px;
-    }
-
-    h2 {
-      font-size: 20px;
-    }
-
-    h3 {
-      font-size: 17px;
-    }
 
     img {
       width: 100%;
