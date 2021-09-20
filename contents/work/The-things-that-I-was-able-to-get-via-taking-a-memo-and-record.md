@@ -4,7 +4,7 @@ title: '메모와 기록를 통해 내가 얻을 수 있었던 것'
 categories: ['Work']
 summary: '메모와 기록을 통해 내가 얻을 수 있었던 것에 대해 생각해본다.'
 featuredImgUrl: https://cdn.pixabay.com/photo/2015/07/02/10/40/writing-828911_960_720.jpg
-featuredImgAlt: Thumbnail that is the things that I was able to get via taking a record or memo
+featuredImgAlt: Thumbnail that is the things that I was able to get via taking memo and record
 ---
 
 # 메모와 기록을 통해 내가 얻을 수 있었던 것
