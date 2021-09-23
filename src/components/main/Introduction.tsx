@@ -51,7 +51,6 @@ type GatsbyImgProps = {
 const BackgroundImage = styled((props: GatsbyImgProps) => (
   <GatsbyImage {...props} />
 ))`
-  width: 100%;
   filter: brightness(0.4);
 `;
 
