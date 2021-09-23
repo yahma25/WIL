@@ -97,8 +97,6 @@ export const queryMarkdownDataBySlug = graphql`
               formats: [AUTO, WEBP]
               transformOptions: { fit: INSIDE }
               layout: CONSTRAINED
-              width: 768
-              height: 200
             )
           }
         }
