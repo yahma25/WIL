@@ -5,11 +5,12 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 const Background = styled.div`
   display: flex;
+  justify-content: center;
   width: 100%;
   background-color: #1c1814;
   color: #fff;
 
-  @media (max-width: 768px) {
+  @media (max-width: 420px) {
     background: none;
     height: 220px;
   }
@@ -20,22 +21,16 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  flex: 1;
-  margin: 0 auto;
   padding: 10px 40px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 420px) {
     width: 100%;
     padding: 30px 24px 0;
   }
 `;
 
 const BackgroundImageWrapper = styled.div`
-  display: flex;
-  flex: 2;
-  width: 100%;
-
-  @media (max-width: 768px) {
+  @media (max-width: 420px) {
     position: absolute;
     z-index: -1;
     height: 220px;
@@ -51,7 +46,6 @@ type GatsbyImgProps = {
 const BackgroundImage = styled((props: GatsbyImgProps) => (
   <GatsbyImage {...props} />
 ))`
-  width: 100%;
   filter: brightness(0.4);
 `;
 
