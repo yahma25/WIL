@@ -1,15 +1,15 @@
 ---
 date: '2021-10-12'
-title: 'iterator, generator'
+title: 'iterator'
 categories: ['JavaScript']
-summary: 'JavaScript iterator와 generator에 대해 살펴본다.'
+summary: 'JavaScript iterator에 대해 살펴본다.'
 featuredImgUrl: https://github.com/yahma25/WIL/blob/master/static/images/javascript/js_iterator.png?raw=true
 featuredImgAlt: Thumbnail that is How to become a better listener
 ---
 
-# 이터레이터(iterator)와 제네레이터(generator)
+# 이터레이터(iterator)
 
-## iterator를 알게 되면...
+## 이터레이터를 알게 되면...
 
 * 표준 빌트인 객체(Array, String, Map, Set, ...)에서 for...of, ...(전개 구문), 배열 구조 분해 할당 할 수 있었던 이유를 알게 된다.
 * 이터레이션 프로토콜의 필요성을 알게 된다.
