@@ -3,7 +3,7 @@ date: '2021-10-12'
 title: 'iterator, generator'
 categories: ['JavaScript']
 summary: 'JavaScript iterator와 generator에 대해 살펴본다.'
-featuredImgUrl: https://github.com/yahma25/WIL/blob/master/static/images/javascript/js_iterator_generator.png?raw=true
+featuredImgUrl: https://github.com/yahma25/WIL/blob/master/static/images/javascript/js_iterator.png?raw=true
 featuredImgAlt: Thumbnail that is How to become a better listener
 ---
 
