@@ -1,4 +1,4 @@
-# WIL (What I learned)
+# WIL (What I have learned)
 
 ## 목적
 
