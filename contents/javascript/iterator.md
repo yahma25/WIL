@@ -4,7 +4,7 @@ title: 'iterator'
 categories: ['JavaScript']
 summary: 'JavaScript iterator에 대해 살펴본다.'
 featuredImgUrl: https://github.com/yahma25/WIL/blob/master/static/images/javascript/js_iterator.png?raw=true
-featuredImgAlt: Thumbnail that is How to become a better listener
+featuredImgAlt: Thumbnail that is to describe the iterator
 ---
 
 # 이터레이터(iterator)
