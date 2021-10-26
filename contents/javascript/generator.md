@@ -20,3 +20,10 @@ featuredImgAlt: Thumbnail that is to describe the generator
 ## 제네레이터 동작 순서
 
 ## 제네레이터와 비동기(Promise, async/await)
+
+## Reference
+
+* https://ko.javascript.info/generators
+* https://jeonghwan-kim.github.io/2016/12/15/coroutine.html
+* https://meetup.toast.com/posts/93
+* https://2ality.com/2015/03/es6-generators.html
