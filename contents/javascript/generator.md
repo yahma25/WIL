@@ -84,6 +84,36 @@ const generatorFunc = new genFunc();
 
 ## return, throw
 
+```js
+// 'return'은 파라미터로 보낸 값을 value로 설정하며 함수를 종료시킨다.
+function* genFunc() {
+  yield 1;
+  yield 2;
+}
+
+const generatorFunc = genFunc();
+console.log(generatorFunc.next()); // {value: 1, done: false}
+console.log(generatorFunc.return(100)); // {value: 100, done: true}
+console.log(generatorFunc.next()); // {value: undefined, done: true}
+```
+
+```js
+// 'throw'는 파라미터로 보낸 오류 메시지로 오류를 발생시키며 함수를 종료시킨다.
+function* genFunc() {
+  try {
+    yield 1;
+    yield 2;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+const generatorFunc = genFunc();
+console.log(generatorFunc.next()); // {value: 1, done: false}
+console.log(generatorFunc.throw(new Error('오류!'))); // {value: undefined, done: true}
+console.log(generatorFunc.next()); // {value: undefined, done: true}
+```
+
 ## 제네레이터 동작 순서
 
 ## 제네레이터와 비동기(Promise, async/await)
