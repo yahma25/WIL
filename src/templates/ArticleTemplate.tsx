@@ -4,6 +4,7 @@ import Template from 'components/common/Template';
 import ArticleHead from 'components/article/ArticleHead';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import ArticleContent from 'components/article/AticleContent';
+import CommentWidget from 'components/article/CommentWidget';
 
 interface ArticleTemplateProps {
   data: {
@@ -65,6 +66,7 @@ const ArticleTemplate: FunctionComponent<ArticleTemplateProps> = function ({
         image={gatsbyImageData}
       />
       <ArticleContent html={html} />
+      <CommentWidget />
     </Template>
   );
 };
