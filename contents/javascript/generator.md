@@ -116,6 +116,38 @@ console.log(generatorFunc.next()); // {value: undefined, done: true}
 
 ## 제네레이터 동작 순서
 
+`next` 메서드를 호출하여 제네레이터 함수를 호출하며 `yield` 키워드가 존재하는 곳까지 진행 후 중지하며 이 패턴을 반복한다.
+
+`generator.next() -> yield -> generator.next() -> yield -> ...`
+
+### 값 주고 받기
+
+`next` 메서드에 파라미터를 전달하여 매개변수를 받는 `yield`를 통해 값을 할당할 수 있다.
+
+```js
+function* genFunc() {
+  const num1 = yield 100;
+  console.log('num1 세팅', num1);
+  const num2 = yield num1 + 500;
+  console.log('num2 세팅', num2);
+  return num1 + num2;
+}
+
+const generatorFunc = genFunc();
+// 첫 번째 yield에는 매개변수를 받은 변수가 없으므로 파라미터로 보내는 값은 의미없음
+let result = generatorFunc.next(9999);
+console.log(result); // {value: 100, done: false}
+
+// num1에 50 할당. return num1(50) + 500;
+result = generatorFunc.next(50);
+console.log(result); // {value: 550, done: false}
+
+// num2에 1000 할당. 다음 yield 찾다가 'return' 확인, return num1(50) + num2(1000)
+// 함수가 종료(return)했으므로 done = true
+result = generatorFunc.next(1000);
+console.log(result); // {value: 1050, done: true}
+```
+
 ## 제네레이터와 비동기(Promise, async/await)
 
 ## Reference
