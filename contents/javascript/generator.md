@@ -150,7 +150,7 @@ console.log(result); // {value: 1050, done: true}
 
 ## 제네레이터와 비동기(Promise, async/await)
 
-## Reference
+## 읽으면 좋은 글
 
 * https://ko.javascript.info/generators
 * https://jeonghwan-kim.github.io/2016/12/15/coroutine.html
