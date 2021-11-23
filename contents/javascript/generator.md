@@ -1,5 +1,5 @@
 ---
-date: '2021-10-26'
+date: '2021-11-23'
 title: 'generator'
 categories: ['JavaScript']
 summary: 'JavaScript generator에 대해 살펴본다.'
