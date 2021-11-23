@@ -92,8 +92,8 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
         <ProfileImage profileImage={profileImage} />
 
         <TitleWrapper>
-          <SubTitle>어제 보다 오늘 더 성장 중인</SubTitle>
           <Title>개발자 김명호입니다.</Title>
+          <SubTitle>동료들과 수다 떠는 용도로 만든 블로그입니다.</SubTitle>
         </TitleWrapper>
       </Wrapper>
       <BackgroundImageWrapper>
