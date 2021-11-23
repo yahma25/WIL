@@ -174,8 +174,6 @@ asyncFunc(function* fetchPost() {
 })();
 ```
 
-## 제네레이터와 비동기(Promise, async/await)
-
 ## 읽으면 좋은 글
 
 * https://ko.javascript.info/generators
