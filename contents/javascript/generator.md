@@ -7,13 +7,13 @@ featuredImgUrl: https://github.com/yahma25/WIL/blob/master/static/images/javascr
 featuredImgAlt: Thumbnail that is to describe the generator
 ---
 
-# 제네레이터(generator)
+# 제너레이터(generator)
 
-## 제네레이터를 알게 되면...
+## 제너레이터를 알게 되면...
 
 호출한 함수를 제어(중지, 재실행)하는 방법을 알게 된다.
 
-## 제네레이터 선언 문법
+## 제너레이터 선언 문법
 
 ### 선언 문법
 
@@ -114,9 +114,9 @@ console.log(generatorFunc.throw(new Error('오류!'))); // {value: undefined, do
 console.log(generatorFunc.next()); // {value: undefined, done: true}
 ```
 
-## 제네레이터 동작 순서
+## 제너레이터 동작 순서
 
-`next` 메서드를 호출하여 제네레이터 함수를 호출하며 `yield` 키워드가 존재하는 곳까지 진행 후 중지하며 이 패턴을 반복한다.
+`next` 메서드를 호출하여 제너레이터 함수를 호출하며 `yield` 키워드가 존재하는 곳까지 진행 후 중지하며 이 패턴을 반복한다.
 
 `generator.next() -> yield -> generator.next() -> yield -> ...`
 
