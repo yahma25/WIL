@@ -148,6 +148,32 @@ result = generatorFunc.next(1000);
 console.log(result); // {value: 1050, done: true}
 ```
 
+### 샘플 코드
+
+```js
+const asyncFunc = (genFunc) => {
+  const generator = genFunc();
+
+  const onResolved = (arg) => {
+    const result = generator.next(arg);
+
+    return result.done
+      ? result.value
+      : // value = Promise (응답 전 fetch의 반환 값)
+      result.value.then((res) => onResolved(res));
+  };
+
+  return onResolved;
+};
+
+asyncFunc(function* fetchPost() {
+  // jsonplaceholder - 테스트를 위한 무료 Mock API
+  const res = yield fetch('https://jsonplaceholder.typicode.com/posts/1');
+  const post = yield res.json();
+  console.log(post); // {userId: 1, id: 1, title: 'sunt aut ...', body: ...}
+})();
+```
+
 ## 제네레이터와 비동기(Promise, async/await)
 
 ## 읽으면 좋은 글
