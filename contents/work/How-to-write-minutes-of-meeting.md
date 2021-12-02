@@ -7,7 +7,7 @@ featuredImgUrl: https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_96
 featuredImgAlt: Thumbnail that is minutes of meeting
 ---
 
-# 회의록 작성법
+# 나는 회의록을 어떻게 작성했었는가
 
 ## 회의록의 목적
 
