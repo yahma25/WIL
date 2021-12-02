@@ -40,7 +40,41 @@ ex) xx 시스템 논의 1차, 2021년 12월 2일 1차 등등
 
 ### 회의록 예시
 
-(작성 필요)
+<style>
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow">날짜</th>
+    <th class="tg-c3ow">내용</th>
+    <th class="tg-c3ow">참석자</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">2021.12.02</td>
+    <td class="tg-0pky">xxx 시스템 핵심 스펙 결정하기<br><br>A, B안 중 A 결정<br>- B안은 기한 내에 해결 어려움<br><br>XXX 기능이 없어도 서비스 이용에 문제 없으니 향후 업데이트로 반영하기<br>- 이슈 생성 필요<br><br>메모<br>- B안으로 기한 문제를 해결할 수 있는 방법을 찾으면 시도는 해볼지<br>- 다음 회의 때 공유 자료는 미리 첨부해놓기<br>- https://xxx.com/xxx 참고하면 XXX 시스템 UI 기획에 도움이 될듯<br>- ...</td>
+    <td class="tg-0pky">김XX, 이XX, 최XX</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">2021.12.01</td>
+    <td class="tg-0pky">xxx 시스템 컨셉 공유<br><br>- 안XX님에게 A 기능이 문서에 작성된 대로 의도가 맞는지 확인하기</td>
+    <td class="tg-0pky">김XX, 김X</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">...</td>
+    <td class="tg-0pky">...</td>
+    <td class="tg-0pky">...</td>
+  </tr>
+</tbody>
+</table>
 
 ## 공유
 
