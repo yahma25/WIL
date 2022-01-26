@@ -3,7 +3,7 @@ date: '2021-08-05'
 title: '협업을 잘하는 사람이 되는 방법'
 categories: ['Work']
 summary: '일 잘하는 사람이 되기 위하여 협업을 잘하는 사람이 되는 방법에 대해 생각해본다.'
-featuredImgUrl: https://cdn.pixabay.com/photo/2016/02/19/11/19/office-1209640_960_720.jpg
+featuredImgUrl: https://images.pexels.com/photos/5256816/pexels-photo-5256816.jpeg
 featuredImgAlt: Thumbnail that is How to become a better collaborator
 ---
 

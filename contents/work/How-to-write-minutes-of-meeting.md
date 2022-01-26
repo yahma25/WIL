@@ -3,7 +3,7 @@ date: '2021-12-02'
 title: '회의록 작성법'
 categories: ['Work']
 summary: '나는 회의록을 어떻게 작성해왔는지 정리해본다.'
-featuredImgUrl: https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_960_720.jpg
+featuredImgUrl: https://images.pexels.com/photos/3153199/pexels-photo-3153199.jpeg
 featuredImgAlt: Thumbnail that is minutes of meeting
 ---
 
