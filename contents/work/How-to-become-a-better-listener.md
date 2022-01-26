@@ -3,7 +3,7 @@ date: '2021-08-18'
 title: '경청을 잘하는 사람이 되는 방법'
 categories: ['Work']
 summary: '일 잘하는 사람이 되기 위하여 경청을 잘하는 사람이 되는 방법에 대해 생각해본다.'
-featuredImgUrl: https://cdn.pixabay.com/photo/2016/09/29/11/36/listen-1702648_960_720.jpg
+featuredImgUrl: https://images.pexels.com/photos/3779448/pexels-photo-3779448.jpeg
 featuredImgAlt: Thumbnail that is How to become a better listener
 ---
 

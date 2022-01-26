@@ -3,7 +3,7 @@ date: '2021-09-01'
 title: '가비지 컬렉션(Garbage Collection)'
 categories: ['JavaScript']
 summary: 'JavaScript의 가비지 컬렉션에 대해서 알아본다.'
-featuredImgUrl: https://cdn.pixabay.com/photo/2015/05/17/18/25/playmobil-771313_960_720.jpg
+featuredImgUrl: https://images.pexels.com/photos/4684372/pexels-photo-4684372.jpeg
 featuredImgAlt: Garbage Collection in JavaScript
 ---
 
