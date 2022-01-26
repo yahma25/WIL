@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://yahma25.github.io/WIL/sitemap/sitemap-index.xml
+Host: https://yahma25.github.io
